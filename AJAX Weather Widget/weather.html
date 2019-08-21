@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<HTML lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>A Simple AJAX Weather Widget</title>
+    <link rel="stylesheet" type="text/css" href="weather.css">
+    <script>
+        function getWeather() {
+            const path = 'https://classes.engineering.wustl.edu/cse330/content/weather_json.php';
+            fetch(path, {
+                method: "POST",
+            })
+                .then(res => res.json())
+                .then(response => {
+                    document.getElementsByClassName("weather-loc")[0].innerHTML = "<strong>" + response.location.city + "</strong> " + response.location.state;
+                    document.getElementsByClassName("weather-humidity")[0].innerHTML = response.atmosphere.humidity;
+                    document.getElementsByClassName("weather-temp")[0].innerHTML = response.current.temp;
+                    document.getElementsByClassName("weather-tomorrow")[0].src = "http://us.yimg.com/i/us/nws/weather/gr/" + response.tomorrow.code + "ds.png";
+                    document.getElementsByClassName("weather-dayaftertomorrow")[0].src = "http://us.yimg.com/i/us/nws/weather/gr/" + response.dayafter.code + "ds.png";
+                })
+        }
+    </script>
+</head>
+
+<body>
+    <div class="weather" id="weatherWidget">
+        <div class="weather-loc"></div>
+        <div class="weather-humidity"></div>
+        <div class="weather-temp"></div>
+        <img class="weather-tomorrow" />
+        <img class="weather-dayaftertomorrow" />
+    </div>
+    <p>
+        <button id="button"> Update </button>
+    </p>
+    <script>
+        document.addEventListener("DOMContentLoaded", getWeather, false);
+        document.getElementById("button").addEventListener("click", getWeather, false);
+
+    </script>
+</body>
+
+</html>

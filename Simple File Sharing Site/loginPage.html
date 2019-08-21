@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html lang='en'>
+	<head>
+		<title>Log In</title>
+    </head>
+    <body>
+    <!--Log in as existing user-->
+        <form action="info.php" method="GET">
+            <p>
+                <label>Username Here:</label>
+                <input type="text" name="username" id="username" />
+            </p>
+
+            <p>
+                <input type="submit" name="login" value="login" />
+            </p>
+        </form>
+    <!--Register new user-->
+        <form action="register.php" method="GET">
+            <p>
+                <label>Add User</label>
+                <input type="text" name="newusername" id="newusername" />
+            </p>
+
+            <p>
+                <input type="submit" name="addUser" value="addUser" />
+            </p>
+        </form>
+<!--View files in public folder as a guest user-->
+        <form action="guestMain.php" method="GET">
+            <p>
+                <input type="submit" name="Guest-Login" value="Guest-Login" />
+            </p>
+        </form>
+
+        
+    </body>
+</html>

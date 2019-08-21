@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang = 'en'>
+    <head>
+        <meta charset= utf-8>
+        <title>A simple JavaScript Calculator</title>
+        <link rel = "stylesheet" type = "text/css" href="calculatorDeco.css">
+    </head>
+    <body>
+        <h1>Simple JavaScript Calculator</h1>
+        <p>
+            <label>1st Number:</label> &nbsp;
+            <input type= "text" id= "numFirst"/>
+        </p>
+
+        <p>
+            <h2>Choose Operation:</h2>
+            <input type = "radio" name ="operation" id= "add"  /> 
+            <label id = "a" for= "add">Addition:&nbsp;+</label> &nbsp;
+        
+            <input type = "radio" name = "operation" id= "subtract" />
+            <label id = "b" for = "subtract">Subtraction:&nbsp;-</label> &nbsp;
+
+        
+            <input type = "radio" name = "operation" id ="multiply" checked="checked"/>
+            <label id = "c" for = "multiply">Multiplication:&nbsp;*</label> &nbsp;
+        
+            <input type= "radio" name="operation" sid = "divide"/>
+            <label id = "d" for = "divide">Division:&nbsp;/</label>
+        </p>
+
+        <p>
+            <label>2nd Number:</label>&nbsp;
+            <input type = "text" id ="numSecond"/>
+        </p>
+
+        <p>
+            <br>
+            <output id="Answer">Answer: </output>
+        </p>
+
+        <script>
+                document.addEventListener("DOMContentLoaded",performCalculation, false);
+                function performCalculation(){
+                    let add, subtract, multiply, divide;
+                    let firstNum, secondNum, output, answer;
+
+                    divide = document.getElementById("divide");
+                    multiply = document.getElementById("multiply");
+                    subtract = document.getElementById("subtract");
+                    add = document.getElementById("add");
+
+                    firstNum = parseFloat(document.getElementById("numFirst").value);
+                    secondNum = parseFloat(document.getElementById("numSecond").value);
+
+                    output = document.getElementById("Answer");
+
+                    if(divide.checked){
+                        if(secondNum=='0'){
+                            output.textContent = "The divisor cannot be zero";
+                        }else{
+                            answer = firstNum / secondNum;
+                        output.textContent = answer;
+                        }
+                    }	
+                    else if(multiply.checked){
+                        answer = firstNum * secondNum;
+                        output.textContent = answer;
+                    }
+                    else if(subtract.checked){
+                        answer = firstNum - secondNum;
+                        output.textContent = answer;
+                    }
+                    else if(add.checked){
+                        answer = firstNum+secondNum;
+                        output.textContent = answer;
+                    }
+                }
+
+                document.getElementById("add").addEventListener("click", performCalculation, false);
+                document.getElementById("subtract").addEventListener("click", performCalculation, false);
+                document.getElementById("multiply").addEventListener("click", performCalculation, false);
+                document.getElementById("divide").addEventListener("click", performCalculation, false);
+
+                document.getElementById("numFirst").addEventListener("keyup", performCalculation, false);
+                document.getElementById("numSecond").addEventListener("keyup", performCalculation, false);
+        </script>
+    </body>
+</html>

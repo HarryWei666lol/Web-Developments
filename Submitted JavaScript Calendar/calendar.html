@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Calendar</title>
+    <!-- Using jquery and ajax to create calendar -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="calendarhelp.js"></script>
+    <script src="calendar.js"></script>
+    <link rel="stylesheet" type="text/css" href="calendar.css">
+  </head>
+
+  <body>
+    <h1>Harry's Calendar</h1>
+
+    <!-- Log in -->
+    <div>
+      <h2>Log In</h2>
+      <label>Username:</label>
+      <input type="text" id="usernamemain" placeholder="Username" />
+      <label>Password:</label>
+      <input type="password" id="passwordmain" placeholder="Password">
+      <input type="button" id="login_btn" value="Log in" />
+      <br />
+    </div>
+
+ <!-- Register -->
+ <h2>Register</h2>
+ <form>
+   <label>Username:</label>
+   <input type="text" name="username" id="username" />
+   <label>Password:</label>
+   <input type="password" name="password" id="password">
+   <label>Re-enter Password:</label>
+   <input type="password" name="repass" id="repass">
+   <input type="submit" id="register_btn" value="Register" />
+   <br />
+ </form>
+ <br />
+
+    <!-- Calendar -->
+    <div class="month">
+      <ul>
+        <li class="prev">
+          <button id="previousbutton">&#10094;</button>
+        </li>
+        <li>
+          <button id="nextbutton" class="next">&#10095;</button>
+        </li>
+        <li id="MonthHeader">
+        </li>
+      </ul>
+      <span id="YearHeader" style="font-size:18px"></span>
+    </div>
+    <ul class="weekdays">
+      <li>Sunday</li>
+      <li>Monday</li>
+      <li>Tuesday</li>
+      <li>Wednesday</li>
+      <li>Thursday</li>
+      <li>Friday</li>
+      <li>Saturday</li>
+    </ul>
+    <div id="table">
+      <table id="tb_calendar">
+      </table>
+    </div>
+
+    <!-- add new event -->
+    <div id="addevent">
+      <h2>Add new event below.</h2>
+      <label>Date </label>
+      <input type="date" id="date" step ="1" required />
+      <script>
+      </script>
+      <label>Time: </label>
+      <input type="time" name="time" id="time" step="1" required />
+      <br />
+      <textarea name="events" cols="20" rows="5" id="events" placeholder="Enter the events needed to be added" required></textarea>
+      <br />
+      <!-- creative - tagging event
+      <label>tag</label>
+      <select name="tag" id="tagtag">
+        <option value="N">None</option>
+        <option value="B">Business</option>
+        <option value="F">Family</option>
+        <option value="S">School</option>
+      </select> -->
+      <button type="submit" id="add_btn">Add</button>
+      <br />
+      <button type="submit" id="addPublic_btn">Add to Public</button>
+    </div>
+
+    <!-- Delete Event -->
+    <div id = "deleteEvent">
+      <h2>Delete Event</h2>
+      <textarea name="delete_events" cols="50" rows="1" id="delete_events" placeholder="Enter the name of the event you wanted to delete"
+        required></textarea>
+      <br />
+      <button type= "submit" id= "delete_btn">Delete</button>
+      <br />
+    </div>
+
+    <!-- Existing event -->
+    <div id="editEvent">
+      <h2>Edit Existing Event below</h2>
+      <textarea name="edit_events" cols="50" rows="1" id="edit_events" placeholder="Enter the original name of the event you wanted to edit"
+        required></textarea>
+      <br />
+      <label>Date </label>
+      <input type="date" id="edit_date" step = "1" required/>
+      <label >Time: </label>
+      <input type="time" name="time" id="edit_time" step="1" required/>
+      <br />
+      <textarea name="events" cols="20" rows="5" id="new_title" placeholder="Enter the new events name/description"
+        required></textarea>
+      <br />
+      <button id="edit_btn" type="submit">Edit</button>
+      <br />
+    </div>
+
+    <!-- Sharing event -->
+    <div id="shareEvent">
+      <h2>Share Event Below</h2>
+      <textarea name="share_events" cols="60" rows="1" id="share_events" placeholder="Enter the name of the user you want to share the event with"
+        required></textarea>
+      <br />
+      <label>Date </label>
+      <input type="date" id="share_date" step = "1" required/>
+      <label>Time: </label>
+      <input type="time" name="time" id="share_time" step="1" required/>
+      <br />
+      <textarea name="events" cols="20" rows="5" id="new_share_title" placeholder="Enter the new events name/description"
+        required></textarea>
+      <br />
+      <button type="submit" id="share_btn">Share</button>
+      <br />
+    </div>
+
+    <br />
+
+    <div id="logout">
+      <button type = "submit" id="logout_btn">Logout</button>
+      <script src="user.js"></script>
+    </div>
+  </body>
+</html>

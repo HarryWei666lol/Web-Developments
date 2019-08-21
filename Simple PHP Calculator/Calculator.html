@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>MyCalculator</title>
+    <link rel = "stylesheet" type = "text/css" href="CalculatorDeco.css">
+</head>
+<body>
+    <form action = "performCalculation.php" method = GET>
+        <h1>
+            <label >1st Number:</label> &nbsp;
+            <input type = text name= "num1"/>
+            <br>
+            <label >2nd Number:</label>&nbsp;
+            <input type = text name= "num2"/>
+        </h1>
+        <div>
+            <h2>Choose Operation:</h2>
+            <input type = radio name = "operation" value = "addition"/> 
+            <label id = "a">Addition:&nbsp;+</label> &nbsp;
+
+            <input type = radio name = "operation" value = "subtraction"/>
+            <label id = "b">Subtraction:&nbsp;-</label> &nbsp;
+
+            <input type = radio name = "operation" value = "multiplication"/>
+            <label id = "c">Multiplication:&nbsp;*</label> &nbsp;
+
+            <input type = radio name= "operation" value = "division"/>
+            <label id = "d">Division:&nbsp;/</label>
+        </div>
+
+        <div>
+            <input type="submit" value = "Calculate"/>
+            <input type = "reset">
+        </div>
+    </form>
+</body>
+</html>
