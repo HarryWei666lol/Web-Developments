@@ -1,0 +1,5 @@
+In a nutshell, Node.js is a platform for server side activities. It uses the Javascript programming language and has a plethora of libraries available as npm modules. We can think of these npm modules as library dependencies that may be satisfied with Composer if you are coming from PHP land. In fact, the default dependencies management system for PHP (Composer) was inspired by Node.js according the official site.  Chances are, if we need a bit of functionality and don’t fancy writing all of the code yourself, there is an npm module available that already provides the features we are looking for.
+
+Node applications are normally implemented when you need to maximize efficiency by utilizing non-blocking I/O and asynchronous events. One gotcha for PHP Developers to know is that Node.js applications run in a single thread. However, backend Node.js code uses multiple threads for operations such as network and file access.  Given this, Node is perfect for applications where a near real-time experience is desired.
+
+In a nutshell, node module cannot read and interpret php files and hence, phpinfo.php behaves the way it does when loaded through Node.JS.

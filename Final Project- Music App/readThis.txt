@@ -1,0 +1,1 @@
+Run Command 'npm install' in the right directory before you launch the app.

@@ -1,0 +1,20 @@
+{
+  "name": "mod6indy",
+  "version": "1.0.0",
+  "description": "Module 6 Individual",
+  "main": "static_server.js",
+  "dependencies": {
+    "mime": "^2.3.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://harrywei666@bitbucket.org/cse330/fall2018-module6-individual-455145.git"
+  },
+  "author": "Harry",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/cse330/fall2018-module6-individual-455145#readme"
+}

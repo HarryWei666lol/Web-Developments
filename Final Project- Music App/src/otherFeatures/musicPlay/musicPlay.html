@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>The Music Player</title>
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
+      #background img {
+        height: 120vh;
+        width: 105%;
+        -webkit-filter: blur(20px);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+      }
+      #main {
+        width: 25%;
+        background-color: #fff;
+        border-radius: 15px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 999;
+      }
+      #theImage img {
+        height: 180px;
+        width: 100%;
+        margin-top: -5px;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+      }
+      #theMusicPlayer {
+        padding: 25px;
+        color: #333;
+      }
+      #titleOfSong {
+        width: 300px;
+        text-align: center;
+        font-family: monospace;
+        font-size: 25px;
+        position: absolute;
+        top: 63%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      #playerButtons {
+        height: 50px;
+        width: 100%;
+        margin-top: 50px;
+        position: relative;
+        top: 10%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      #play,
+      #next,
+      #pre {
+        width: 50px;
+        height: 50px;
+        border: 0;
+        background-color: royalblue;
+        border-radius: 50%;
+        outline: none;
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      #next {
+        width: 30px;
+        height: 30px;
+        left: 70%;
+      }
+      #pre {
+        width: 30px;
+        height: 30px;
+        left: 30%;
+      }
+      #play img,
+      #next img,
+      #pre img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="background">
+      <div id="overallLayer"></div>
+      <img src="Poster1.jpg" id="bigPic" alt="Poster1" />
+    </div>
+    <div id="main">
+      <div id="theImage">
+        <img src="Poster1.jpg" id="midPic" alt="Poster1" />
+      </div>
+      <div id="changePicButtons">
+        <button onclick="changeToPic1()">1st</button>
+        <button onclick="changeToPic2()">2nd</button>
+        <button onclick="changeToPic3()">3rd</button>
+      </div>
+      <div id="theMusicPlayer">
+        <div id="titleOfSong">what's the title</div>
+        <div id="playerButtons">
+          <button id="pre" onclick="pre()">
+            <img src="thePrevious.png" alt="Pre" height="20" width="20" />
+          </button>
+          <button id="play" onclick="playOrPauseSong()">
+            <img src="PauseIt.png" id="pauseIt" alt="Pause" />
+          </button>
+          <button id="next" onclick="next()">
+            <img src="theNext.png" alt="Next" height="20" width="20" />
+          </button>
+        </div>
+      </div>
+    </div>
+    <script>
+      let songs = ["The Monster.mp3", "Despacito.mp3", "Helium.mp3"];
+      let songTitle = document.getElementById("titleOfSong");
+      let song = new Audio();
+      let currentSong = 0; // point to the current song
+      window.onload = playSong; // call playSong() when window is load
+
+      function playSong() {
+        song.src = songs[currentSong]; // set the source of 0th song
+        songTitle.textContent = songs[currentSong]; // set title of the song
+        song.play();
+      }
+
+      function playOrPauseSong() {
+        if (song.paused) {
+          // to continue after a song is paused
+          song.play();
+        } else {
+          // to pause a song
+          song.pause();
+        }
+      }
+
+      function next() {
+        currentSong++;
+        if (currentSong > 2) {
+          currentSong = 0;
+        }
+        playSong();
+      }
+
+      function pre() {
+        currentSong--;
+        if (currentSong < 0) {
+          currentSong = 2;
+        }
+        playSong();
+      }
+
+      function changeToPic1() {
+        let imageBig = document.getElementById("bigPic");
+        imageBig.src = "Poster1.jpg";
+        let imageMid = document.getElementById("midPic");
+        imageMid.src = "Poster1.jpg";
+      }
+
+      function changeToPic2() {
+        let imageBig = document.getElementById("bigPic");
+        imageBig.src = "Poster2.jpg";
+        let imageMid = document.getElementById("midPic");
+        imageMid.src = "Poster2.jpg";
+      }
+
+      function changeToPic3() {
+        let imageBig = document.getElementById("bigPic");
+        imageBig.src = "Poster3.jpg";
+        let imageMid = document.getElementById("midPic");
+        imageMid.src = "Poster3.jpg";
+      }
+    </script>
+  </body>
+</html>

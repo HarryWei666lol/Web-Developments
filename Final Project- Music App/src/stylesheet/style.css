@@ -1,0 +1,10 @@
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  background-image: url("../assets/music2.jpg");
+  background-repeat: no-repeat;
+  background-size: 1200px 700px;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+  color: peru;
+}
